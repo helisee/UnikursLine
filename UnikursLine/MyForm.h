@@ -11,6 +11,7 @@ namespace UnikursLine {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+
 	/// <summary>
 	/// —‚Ó‰Í‡ ‰Îˇ MyForm
 	/// </summary>
@@ -55,9 +56,11 @@ namespace UnikursLine {
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::PictureBox^ pictureBoxMain;
-
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::Label^ labelCoordinates;
+	private: System::Windows::Forms::Label^ label1;
 	private: System::ComponentModel::IContainer^ components;
-
+	
 	
 	
 	//private: cli::array<Object^>^ myDynamicObjs;
@@ -81,6 +84,8 @@ namespace UnikursLine {
 			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ÓœÓ„‡ÏÏÂToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBoxMatrix = (gcnew System::Windows::Forms::GroupBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->labelCoordinates = (gcnew System::Windows::Forms::Label());
 			this->panelMatrix = (gcnew System::Windows::Forms::Panel());
 			this->panelHorizontal = (gcnew System::Windows::Forms::Panel());
 			this->panelVertical = (gcnew System::Windows::Forms::Panel());
@@ -91,6 +96,7 @@ namespace UnikursLine {
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->pictureBoxMain = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->menuStrip1->SuspendLayout();
 			this->groupBoxMatrix->SuspendLayout();
@@ -99,6 +105,7 @@ namespace UnikursLine {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownNodes))->BeginInit();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxMain))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -129,6 +136,8 @@ namespace UnikursLine {
 			// 
 			// groupBoxMatrix
 			// 
+			this->groupBoxMatrix->Controls->Add(this->label1);
+			this->groupBoxMatrix->Controls->Add(this->labelCoordinates);
 			this->groupBoxMatrix->Controls->Add(this->panelMatrix);
 			this->groupBoxMatrix->Controls->Add(this->labelBranches);
 			this->groupBoxMatrix->Controls->Add(this->numericUpDownBranches);
@@ -141,6 +150,25 @@ namespace UnikursLine {
 			this->groupBoxMatrix->TabStop = false;
 			this->groupBoxMatrix->Text = L" Ã‡ÚËˆ‡";
 			this->groupBoxMatrix->Enter += gcnew System::EventHandler(this, &MyForm::groupBox1_Enter);
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(274, 29);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(37, 13);
+			this->label1->TabIndex = 7;
+			this->label1->Text = L"Zetros";
+			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
+			// 
+			// labelCoordinates
+			// 
+			this->labelCoordinates->AutoSize = true;
+			this->labelCoordinates->Location = System::Drawing::Point(152, 23);
+			this->labelCoordinates->Name = L"labelCoordinates";
+			this->labelCoordinates->Size = System::Drawing::Size(35, 13);
+			this->labelCoordinates->TabIndex = 6;
+			this->labelCoordinates->Text = L"label1";
 			// 
 			// panelMatrix
 			// 
@@ -213,6 +241,7 @@ namespace UnikursLine {
 			// panel1
 			// 
 			this->panel1->Controls->Add(this->pictureBoxMain);
+			this->panel1->Controls->Add(this->pictureBox2);
 			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Location = System::Drawing::Point(367, 42);
 			this->panel1->Name = L"panel1";
@@ -228,10 +257,19 @@ namespace UnikursLine {
 			this->pictureBoxMain->Size = System::Drawing::Size(498, 456);
 			this->pictureBoxMain->TabIndex = 1;
 			this->pictureBoxMain->TabStop = false;
+			this->pictureBoxMain->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::pictureBoxMain_MouseMove);
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->Location = System::Drawing::Point(228, 127);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(100, 50);
+			this->pictureBox2->TabIndex = 1;
+			this->pictureBox2->TabStop = false;
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(0, 0);
+			this->pictureBox1->Location = System::Drawing::Point(17, 9);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(0);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(55, 55);
@@ -262,6 +300,7 @@ namespace UnikursLine {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownNodes))->EndInit();
 			this->panel1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxMain))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -387,10 +426,27 @@ namespace UnikursLine {
 			gfx->FillEllipse(brush, 0, 0, width, height);
 			gfx->DrawEllipse(Pens::DarkGray, 0, 0, width, height);
 			gfx->DrawString(L"1", font, darkGray, (width - fontSize)/2, 4);
-			//gfx->DrawString(L"1", font, darkGray, 0, 0);
 			this->pictureBox1->Image = image;
+
+			
 		}
 		
+		private: System::Void makeGraphField(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+			int width = 50;
+			int height = 50;
+			Bitmap^ image = gcnew Bitmap(width, height);
+			System::Drawing::Graphics^ gfx = Graphics::FromImage(image);
+			System::Drawing::Brush^ brush = gcnew SolidBrush(Color::LightGray);
+			System::Drawing::Brush^ darkGray = gcnew SolidBrush(Color::DarkGray);
+
+			gfx->SmoothingMode = Drawing2D::SmoothingMode::HighQuality;
+			gfx->FillEllipse(brush, 0, 0, width, height);
+			gfx->DrawEllipse(Pens::DarkGray, 0, 0, width, height);
+			this->pictureBoxMain->Image = image;
+
+
+		}
+
 		private: System::Void makePictureBox() {
 			System::Windows::Forms::PictureBox^ pb = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(pb))->BeginInit();
@@ -441,6 +497,39 @@ namespace UnikursLine {
 		private: System::Void pictureBox1_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 			mouseDown = false;
 		}
-	};
+
+	private: System::Void pictureBoxMain_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		labelCoordinates->Text = (e->X).ToString() + L"; " + (e->Y).ToString();
+
+		int circleWidth = 50;
+		int circleHeight = 50;
+
+		int circleCenterOffsetX = circleWidth / 2;
+		int circleCenterOffsetY = circleHeight / 2;
+
+		Bitmap^ image = (Bitmap^)(this->pictureBoxMain->Image);
+		if (image == nullptr) {
+			image = gcnew Bitmap(((Control^)sender)->Size.Width, ((Control^)sender)->Size.Height);
+		}
+		System::Drawing::Graphics^ gfx = Graphics::FromImage(image);
+		
+		System::Drawing::Brush^ brush = gcnew SolidBrush(Color::LightGray);
+		System::Drawing::Brush^ darkGray = gcnew SolidBrush(Color::DarkGray);
+		gfx->Clear(Color::White);
+		gfx->SmoothingMode = Drawing2D::SmoothingMode::HighQuality;
+		gfx->FillEllipse(brush, e->X - circleCenterOffsetX, e->Y - circleCenterOffsetY, circleWidth, circleHeight);
+		gfx->DrawEllipse(Pens::DarkGray, e->X - circleCenterOffsetX, e->Y - circleCenterOffsetY, circleWidth, circleHeight);
+
+		
+
+		this->pictureBoxMain->Image = image;
+	}
+private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	MessageBox::Show(
+		"Zetros",
+		"Info"
+	);
+}
+};
 
 }
