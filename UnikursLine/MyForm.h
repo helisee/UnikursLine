@@ -11,7 +11,6 @@ namespace UnikursLine {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
 	/// <summary>
 	/// —‚Ó‰Í‡ ‰Îˇ MyForm
 	/// </summary>
@@ -83,21 +82,6 @@ namespace UnikursLine {
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ÓœÓ„‡ÏÏÂToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->groupBoxMatrix = (gcnew System::Windows::Forms::GroupBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->labelCoordinates = (gcnew System::Windows::Forms::Label());
-			this->panelMatrix = (gcnew System::Windows::Forms::Panel());
-			this->panelHorizontal = (gcnew System::Windows::Forms::Panel());
-			this->panelVertical = (gcnew System::Windows::Forms::Panel());
-			this->labelBranches = (gcnew System::Windows::Forms::Label());
-			this->numericUpDownBranches = (gcnew System::Windows::Forms::NumericUpDown());
-			this->numericUpDownNodes = (gcnew System::Windows::Forms::NumericUpDown());
-			this->labelNodes = (gcnew System::Windows::Forms::Label());
-			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->pictureBoxMain = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->menuStrip1->SuspendLayout();
 			this->groupBoxMatrix->SuspendLayout();
 			this->panelMatrix->SuspendLayout();
