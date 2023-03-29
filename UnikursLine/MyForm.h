@@ -1,6 +1,7 @@
-#pragma once
+п»ї#pragma once
 #include <string.h>
 #include "windows.h"
+#include "Graph.h"
 #include <cliext/list>
 
 namespace UnikursLine {
@@ -12,22 +13,27 @@ namespace UnikursLine {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	/// <summary>
-	/// Сводка для MyForm
+	/// РЎРІРѕРґРєР° РґР»СЏ MyForm
 	/// </summary>
+
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
+		static MyForm^ I;
+
 		MyForm(void)
 		{
+			I = this;
 			InitializeComponent();
+
 			//
-			//TODO: добавьте код конструктора
+			//TODO: РґРѕР±Р°РІСЊС‚Рµ РєРѕРґ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Освободить все используемые ресурсы.
+		/// РћСЃРІРѕР±РѕРґРёС‚СЊ РІСЃРµ РёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ СЂРµСЃСѓСЂСЃС‹.
 		/// </summary>
 		~MyForm()
 		{
@@ -38,7 +44,7 @@ namespace UnikursLine {
 		}
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem1;
-	private: System::Windows::Forms::ToolStripMenuItem^ оПрограммеToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ РѕРџСЂРѕРіСЂР°РјРјРµToolStripMenuItem;
 	private: System::Windows::Forms::GroupBox^ groupBoxMatrix;
 	private: System::Windows::Forms::Label^ labelNodes;
 	private: System::Windows::Forms::Label^ labelBranches;
@@ -52,36 +58,52 @@ namespace UnikursLine {
 	private: System::Windows::Forms::Panel^ panelVertical;
 
 	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
-	private: System::Windows::Forms::Panel^ panel1;
+	public: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::PictureBox^ pictureBoxMain;
+	public: System::Windows::Forms::PictureBox^ pictureBoxMain;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Label^ labelCoordinates;
-	private: System::Windows::Forms::Label^ label1;
+	public: System::Windows::Forms::Label^ label1;
 	private: System::ComponentModel::IContainer^ components;
-	
-	
-	
-	//private: cli::array<Object^>^ myDynamicObjs;
-	//private: cliext::list<Object^>^ dynamicControls;
+
+
+
+		   //private: cli::array<Object^>^ myDynamicObjs;
+		   //private: cliext::list<Object^>^ dynamicControls;
 
 	protected:
 		/// <summary>
-		/// Обязательная переменная конструктора.
+		/// РћР±СЏР·Р°С‚РµР»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°.
 		/// </summary>
 
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
+		/// РўСЂРµР±СѓРµРјС‹Р№ РјРµС‚РѕРґ РґР»СЏ РїРѕРґРґРµСЂР¶РєРё РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° вЂ” РЅРµ РёР·РјРµРЅСЏР№С‚Рµ 
+		/// СЃРѕРґРµСЂР¶РёРјРѕРµ СЌС‚РѕРіРѕ РјРµС‚РѕРґР° СЃ РїРѕРјРѕС‰СЊСЋ СЂРµРґР°РєС‚РѕСЂР° РєРѕРґР°.
 		/// </summary>
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->оПрограммеToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->groupBoxMatrix = (gcnew System::Windows::Forms::GroupBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->labelCoordinates = (gcnew System::Windows::Forms::Label());
+			this->panelMatrix = (gcnew System::Windows::Forms::Panel());
+			this->panelHorizontal = (gcnew System::Windows::Forms::Panel());
+			this->panelVertical = (gcnew System::Windows::Forms::Panel());
+			this->labelBranches = (gcnew System::Windows::Forms::Label());
+			this->numericUpDownBranches = (gcnew System::Windows::Forms::NumericUpDown());
+			this->numericUpDownNodes = (gcnew System::Windows::Forms::NumericUpDown());
+			this->labelNodes = (gcnew System::Windows::Forms::Label());
+			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBoxMain = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->РѕРџСЂРѕРіСЂР°РјРјРµToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->groupBoxMatrix->SuspendLayout();
 			this->panelMatrix->SuspendLayout();
@@ -97,7 +119,7 @@ namespace UnikursLine {
 			// 
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->toolStripMenuItem1,
-					this->оПрограммеToolStripMenuItem
+					this->РѕРџСЂРѕРіСЂР°РјРјРµToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -109,14 +131,14 @@ namespace UnikursLine {
 			// 
 			this->toolStripMenuItem1->Name = L"toolStripMenuItem1";
 			this->toolStripMenuItem1->Size = System::Drawing::Size(68, 20);
-			this->toolStripMenuItem1->Text = L"Помощь";
+			this->toolStripMenuItem1->Text = L"РџРѕРјРѕС‰СЊ";
 			// 
-			// оПрограммеToolStripMenuItem
+			// РѕРџСЂРѕРіСЂР°РјРјРµToolStripMenuItem
 			// 
-			this->оПрограммеToolStripMenuItem->Name = L"оПрограммеToolStripMenuItem";
-			this->оПрограммеToolStripMenuItem->Size = System::Drawing::Size(94, 20);
-			this->оПрограммеToolStripMenuItem->Text = L"О программе";
-			this->оПрограммеToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::оПрограммеToolStripMenuItem_Click);
+			this->РѕРџСЂРѕРіСЂР°РјРјРµToolStripMenuItem->Name = L"РѕРџСЂРѕРіСЂР°РјРјРµToolStripMenuItem";
+			this->РѕРџСЂРѕРіСЂР°РјРјРµToolStripMenuItem->Size = System::Drawing::Size(94, 20);
+			this->РѕРџСЂРѕРіСЂР°РјРјРµToolStripMenuItem->Text = L"Рћ РїСЂРѕРіСЂР°РјРјРµ";
+			this->РѕРџСЂРѕРіСЂР°РјРјРµToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::РѕРџСЂРѕРіСЂР°РјРјРµToolStripMenuItem_Click);
 			// 
 			// groupBoxMatrix
 			// 
@@ -132,7 +154,7 @@ namespace UnikursLine {
 			this->groupBoxMatrix->Size = System::Drawing::Size(338, 446);
 			this->groupBoxMatrix->TabIndex = 1;
 			this->groupBoxMatrix->TabStop = false;
-			this->groupBoxMatrix->Text = L" Матрица";
+			this->groupBoxMatrix->Text = L" РњР°С‚СЂРёС†Р°";
 			this->groupBoxMatrix->Enter += gcnew System::EventHandler(this, &MyForm::groupBox1_Enter);
 			// 
 			// label1
@@ -187,7 +209,7 @@ namespace UnikursLine {
 			this->labelBranches->Name = L"labelBranches";
 			this->labelBranches->Size = System::Drawing::Size(46, 13);
 			this->labelBranches->TabIndex = 4;
-			this->labelBranches->Text = L"Ветвей:";
+			this->labelBranches->Text = L"Р’РµС‚РІРµР№:";
 			// 
 			// numericUpDownBranches
 			// 
@@ -215,7 +237,7 @@ namespace UnikursLine {
 			this->labelNodes->Name = L"labelNodes";
 			this->labelNodes->Size = System::Drawing::Size(42, 13);
 			this->labelNodes->TabIndex = 0;
-			this->labelNodes->Text = L"Узлов:";
+			this->labelNodes->Text = L"РЈР·Р»РѕРІ:";
 			// 
 			// contextMenuStrip1
 			// 
@@ -241,7 +263,7 @@ namespace UnikursLine {
 			this->pictureBoxMain->Size = System::Drawing::Size(498, 456);
 			this->pictureBoxMain->TabIndex = 1;
 			this->pictureBoxMain->TabStop = false;
-			this->pictureBoxMain->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::pictureBoxMain_MouseMove);
+			//this->pictureBoxMain->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::pictureBoxMain_MouseMove);
 			// 
 			// pictureBox2
 			// 
@@ -292,228 +314,230 @@ namespace UnikursLine {
 		}
 #pragma endregion
 
-		private: System::Void оПрограммеToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-			SetConsoleOutputCP(1251);
-			MessageBox::Show(
-				"Дата созания: 25.01.2023\nВерсия: 1.0.0.\nРазрабочик: Метелев Петр Андреевич",
-				"О программе" 
-			);
-			SetConsoleOutputCP(886);
-		}
-		private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
-		}
+	private: System::Void РѕРџСЂРѕРіСЂР°РјРјРµToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		SetConsoleOutputCP(1251);
+		MessageBox::Show(
+			"Р”Р°С‚Р° СЃРѕР·Р°РЅРёСЏ: 25.01.2023\nР’РµСЂСЃРёСЏ: 1.0.0.\nР Р°Р·СЂР°Р±РѕС‡РёРє: РњРµС‚РµР»РµРІ РџРµС‚СЂ РђРЅРґСЂРµРµРІРёС‡",
+			"Рћ РїСЂРѕРіСЂР°РјРјРµ"
+		);
+		SetConsoleOutputCP(886);
+	}
+	private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
+	}
 
-		private: System::Void numericUpDownBranches_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-			generateMatrix(sender, e);
+	private: System::Void numericUpDownBranches_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+		generateMatrix(sender, e);
+	}
+		   //numericUpDown2_ValueChanged
+	private: System::Void numericUpDownNodes_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+		generateMatrix(sender, e);
+	}
+
+		   Generic::List<Object^>^ myDynamicObjs;
+
+	private: System::Void generateMatrix(System::Object^ sender, System::EventArgs^ e) {
+		if (myDynamicObjs == nullptr) myDynamicObjs = gcnew Generic::List<Object^>();
+
+		// РќРµР±РµР·РѕРїР°СЃРЅРѕ РІРІРёРґСѓ СЃСЃС‹Р»РѕРє РЅР° СЌР»РµРјРµРЅС‚С‹/ С‡РµСЂРµР· for РїРѕ РёРЅРґРµРєСЃСѓ СЃРґРµР»Р°С‚СЊ??
+		for each (auto elem in myDynamicObjs) {
+			this->panelMatrix->Controls->Remove((Control^)elem);
+			this->panelHorizontal->Controls->Remove((Control^)elem);
+			this->panelVertical->Controls->Remove((Control^)elem);
 		}
-		//numericUpDown2_ValueChanged
-		private: System::Void numericUpDownNodes_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-			generateMatrix(sender, e);
-		}
+		myDynamicObjs->Clear();
 
-		Generic::List<Object^>^ myDynamicObjs;
+		int nodes = (int)this->numericUpDownNodes->Value;
+		int branches = (int)this->numericUpDownBranches->Value;
+		int width = 32;
+		int height = 20;
+		int offsetX = 4;
+		int offsetY = 4;
 
-		private: System::Void generateMatrix(System::Object^ sender, System::EventArgs^ e) {
-			if (myDynamicObjs == nullptr) myDynamicObjs = gcnew Generic::List<Object^>();
+		for (int i = 0; i < nodes; i++) {
 
-			// Небезопасно ввиду ссылок на элементы/ через for по индексу сделать??
-			for each (auto elem in myDynamicObjs) {
-				this->panelMatrix->Controls->Remove((Control^)elem);
-				this->panelHorizontal->Controls->Remove((Control^)elem);
-				this->panelVertical->Controls->Remove((Control^)elem);
+			makeRowIndexLabel(i, height, offsetY, width);
+
+			for (int j = 0; j < branches; j++) {
+				System::Windows::Forms::TextBox^ tb;
+				tb = (gcnew System::Windows::Forms::TextBox());
+				this->panelMatrix->Controls->Add(tb);
+
+				tb->Location = System::Drawing::Point(j * (width + offsetX) + width, i * (height + offsetY) + this->panelHorizontal->Size.Height);
+				tb->Name = L"textBox" + i.ToString() + j.ToString();
+				tb->Size = System::Drawing::Size(width, height);
+				tb->Text = L"0";
+				tb->AutoSize = false;
+				tb->TabIndex = i * branches + j + 4;
+				tb->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+				Update();
+
+				//dynamicControls->push_back(tb);
+				myDynamicObjs->Add(tb);
+
+				// РІСЃС‘ С‡С‚Рѕ РЅРёР¶Рµ РЅРµ РІС‹РїРѕР»РЅРёС‚СЃСЏ РґР»СЏ СЃР»РµРґСѓСЋС‰РµР№ СЃС‚СЂРѕРєРё
+				if (i > 0) continue;
+				makeColIndexLabel(j, width, offsetX);
 			}
-			myDynamicObjs->Clear();
-
-			int nodes = (int)this->numericUpDownNodes->Value;
-			int branches = (int)this->numericUpDownBranches->Value;
-			int width = 32;
-			int height = 20;
-			int offsetX = 4;
-			int offsetY = 4;
-
-			for (int i = 0; i < nodes; i++) {
-
-				makeRowIndexLabel(i, height, offsetY, width);
-
-				for (int j = 0; j < branches; j++) {
-					System::Windows::Forms::TextBox^ tb;
-					tb = (gcnew System::Windows::Forms::TextBox());
-					this->panelMatrix->Controls->Add(tb);
-					
-					tb->Location = System::Drawing::Point(j * (width + offsetX) + width, i * (height + offsetY) + this->panelHorizontal->Size.Height);
-					tb->Name = L"textBox" + i.ToString() + j.ToString();
-					tb->Size = System::Drawing::Size(width, height);
-					tb->Text = L"0";
-					tb->AutoSize = false;
-					tb->TabIndex = i * branches + j + 4;
-					tb->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-					Update();
-					
-					//dynamicControls->push_back(tb);
-					myDynamicObjs->Add(tb);
-
-					// всё что ниже не выполнится для следующей строки
-					if (i > 0) continue;
-					makeColIndexLabel(j, width, offsetX);
-				}
-			}
 		}
+	}
 
-		private: System::Void  makeColIndexLabel(int j, int width, int offsetX)
-		{
-			System::Windows::Forms::Label^ colIndexLabel;
-			colIndexLabel = (gcnew System::Windows::Forms::Label());
-			this->panelHorizontal->Controls->Add(colIndexLabel);
-			colIndexLabel->Location = System::Drawing::Point(j * (width + offsetX), 0);
-			colIndexLabel->Name = L"labelHorizontal" + j.ToString();
-			colIndexLabel->Size = System::Drawing::Size(width, 13);
-			colIndexLabel->TabIndex = 100 + j;
-			colIndexLabel->Text = L"" + (j + 1).ToString();
-			colIndexLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+	private: System::Void makeColIndexLabel(int j, int width, int offsetX)
+	{
+		System::Windows::Forms::Label^ colIndexLabel;
+		colIndexLabel = (gcnew System::Windows::Forms::Label());
+		this->panelHorizontal->Controls->Add(colIndexLabel);
+		colIndexLabel->Location = System::Drawing::Point(j * (width + offsetX), 0);
+		colIndexLabel->Name = L"labelHorizontal" + j.ToString();
+		colIndexLabel->Size = System::Drawing::Size(width, 13);
+		colIndexLabel->TabIndex = 100 + j;
+		colIndexLabel->Text = L"" + (j + 1).ToString();
+		colIndexLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 
-			Update();
-			myDynamicObjs->Add(colIndexLabel);
-			//dynamicControls->push_back(colIndexLabel);
-		}
+		Update();
+		myDynamicObjs->Add(colIndexLabel);
+		//dynamicControls->push_back(colIndexLabel);
+	}
 
-		private: System::Void makeRowIndexLabel(int i, int height, int offsetY, int width)
-		{
-		   System::Windows::Forms::Label^ rowIndexLabel;
-		   rowIndexLabel = (gcnew System::Windows::Forms::Label());
-		   this->panelVertical->Controls->Add(rowIndexLabel);
-		   rowIndexLabel->Location = System::Drawing::Point(0, i * (height + offsetY) + this->panelHorizontal->Size.Height);
-		   rowIndexLabel->Name = L"labelVertical" + i.ToString();
-		   rowIndexLabel->Size = System::Drawing::Size(width, height);
-		   rowIndexLabel->TabIndex = 200 + i;
-		   rowIndexLabel->Text = (i + 1).ToString();
-		   rowIndexLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+	private: System::Void makeRowIndexLabel(int i, int height, int offsetY, int width)
+	{
+		System::Windows::Forms::Label^ rowIndexLabel;
+		rowIndexLabel = (gcnew System::Windows::Forms::Label());
+		this->panelVertical->Controls->Add(rowIndexLabel);
+		rowIndexLabel->Location = System::Drawing::Point(0, i * (height + offsetY) + this->panelHorizontal->Size.Height);
+		rowIndexLabel->Name = L"labelVertical" + i.ToString();
+		rowIndexLabel->Size = System::Drawing::Size(width, height);
+		rowIndexLabel->TabIndex = 200 + i;
+		rowIndexLabel->Text = (i + 1).ToString();
+		rowIndexLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 
-		   Update();
-		   myDynamicObjs->Add(rowIndexLabel);
-		   //dynamicControls->push_back(rowIndexLabel);
-		}
-		   
-
-		private: System::Void onPaint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-			
-			int width = 50;
-			int height = 50;
-			Bitmap^ image = gcnew Bitmap(width, height);
-			System::Drawing::Graphics^ gfx = Graphics::FromImage(image);
-			System::Drawing::Brush^ brush = gcnew SolidBrush(Color::LightGray);
-			System::Drawing::Brush^ darkGray = gcnew SolidBrush(Color::DarkGray);
-
-			int fontSize = 20;
-			System::Drawing::Font^ font = gcnew System::Drawing::Font("Verdana", fontSize);
-			
-			gfx->SmoothingMode = Drawing2D::SmoothingMode::HighQuality;
-			gfx->FillEllipse(brush, 0, 0, width, height);
-			gfx->DrawEllipse(Pens::DarkGray, 0, 0, width, height);
-			gfx->DrawString(L"1", font, darkGray, (width - fontSize)/2, 4);
-			this->pictureBox1->Image = image;
-
-			
-		}
-		
-		private: System::Void makeGraphField(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-			int width = 50;
-			int height = 50;
-			Bitmap^ image = gcnew Bitmap(width, height);
-			System::Drawing::Graphics^ gfx = Graphics::FromImage(image);
-			System::Drawing::Brush^ brush = gcnew SolidBrush(Color::LightGray);
-			System::Drawing::Brush^ darkGray = gcnew SolidBrush(Color::DarkGray);
-
-			gfx->SmoothingMode = Drawing2D::SmoothingMode::HighQuality;
-			gfx->FillEllipse(brush, 0, 0, width, height);
-			gfx->DrawEllipse(Pens::DarkGray, 0, 0, width, height);
-			this->pictureBoxMain->Image = image;
+		Update();
+		myDynamicObjs->Add(rowIndexLabel);
+		//dynamicControls->push_back(rowIndexLabel);
+	}
 
 
-		}
+	private: System::Void onPaint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 
-		private: System::Void makePictureBox() {
-			System::Windows::Forms::PictureBox^ pb = (gcnew System::Windows::Forms::PictureBox());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(pb))->BeginInit();
-		
-			pb->Location = System::Drawing::Point(26, 19);
-			pb->Name = L"pictureBox1";
-			pb->Size = System::Drawing::Size(49, 50);
-			pb->TabIndex = 0;
-			pb->TabStop = false;
-		
-			//pb->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::pictureBox1_MouseDown);
-		
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(pb))->EndInit();
-		}
-		
-		private: System::Void panel1_DragEnter(System::Object^ sender, System::Windows::Forms::DragEventArgs^ e) {
-			//System::Windows::Forms::MessageBox::Show(e->Data->GetFormats()[0]);
-		
-		}
-		
-	private: 
+		int width = 50;
+		int height = 50;
+		Bitmap^ image = gcnew Bitmap(width, height);
+		System::Drawing::Graphics^ gfx = Graphics::FromImage(image);
+		System::Drawing::Brush^ brush = gcnew SolidBrush(Color::LightGray);
+		System::Drawing::Brush^ darkGray = gcnew SolidBrush(Color::DarkGray);
+
+		int fontSize = 20;
+		System::Drawing::Font^ font = gcnew System::Drawing::Font("Verdana", (float)fontSize);
+
+		gfx->SmoothingMode = Drawing2D::SmoothingMode::HighQuality;
+		gfx->FillEllipse(brush, 0, 0, width, height);
+		gfx->DrawEllipse(Pens::DarkGray, 0, 0, width, height);
+		gfx->DrawString(L"1", font, darkGray, float(width - fontSize) / 2, (float)4);
+		this->pictureBox1->Image = image;
+
+
+	}
+
+	private: System::Void makeGraphField(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+		int width = 50;
+		int height = 50;
+		Bitmap^ image = gcnew Bitmap(width, height);
+		System::Drawing::Graphics^ gfx = Graphics::FromImage(image);
+		System::Drawing::Brush^ brush = gcnew SolidBrush(Color::LightGray);
+		System::Drawing::Brush^ darkGray = gcnew SolidBrush(Color::DarkGray);
+
+		gfx->SmoothingMode = Drawing2D::SmoothingMode::HighQuality;
+		gfx->FillEllipse(brush, 0, 0, width, height);
+		gfx->DrawEllipse(Pens::DarkGray, 0, 0, width, height);
+		this->pictureBoxMain->Image = image;
+
+	}
+
+	private: System::Void makePictureBox() {
+		System::Windows::Forms::PictureBox^ pb = (gcnew System::Windows::Forms::PictureBox());
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(pb))->BeginInit();
+
+		pb->Location = System::Drawing::Point(26, 19);
+		pb->Name = L"pictureBox1";
+		pb->Size = System::Drawing::Size(49, 50);
+		pb->TabIndex = 0;
+		pb->TabStop = false;
+
+		//pb->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::pictureBox1_MouseDown);
+
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(pb))->EndInit();
+	}
+
+	private: System::Void panel1_DragEnter(System::Object^ sender, System::Windows::Forms::DragEventArgs^ e) {
+		//System::Windows::Forms::MessageBox::Show(e->Data->GetFormats()[0]);
+
+	}
+
+	private:
 		bool mouseDown = false;
 		Point mouseDownLocation;
-		
-		private: System::Void pictureBox1_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-			if (mouseDown) {
-				((Control^)sender)->Left = e->X + pictureBox1->Left - mouseDownLocation.X;
-				((Control^)sender)->Top = e->Y + pictureBox1->Top - mouseDownLocation.Y;
-				if (((Control^)sender)->Left <= 0) {
-					((Control^)sender)->Left = 0;
-				}
-				if (((Control^)sender)->Top <= 0) {
-					((Control^)sender)->Top = 0;
-				}
-				if (((Control^)sender)->Left > pictureBox1->Parent->Size.Width - pictureBox1->Size.Width) {
-					((Control^)sender)->Left = pictureBox1->Parent->Size.Width - pictureBox1->Size.Width;
-				}
-				if (((Control^)sender)->Top > pictureBox1->Parent->Size.Height - pictureBox1->Size.Height) {
-					((Control^)sender)->Top = pictureBox1->Parent->Size.Height - pictureBox1->Size.Height;
-				}
+
+	private: System::Void pictureBox1_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if (mouseDown) {
+			((Control^)sender)->Left = e->X + pictureBox1->Left - mouseDownLocation.X;
+			((Control^)sender)->Top = e->Y + pictureBox1->Top - mouseDownLocation.Y;
+			if (((Control^)sender)->Left <= 0) {
+				((Control^)sender)->Left = 0;
+			}
+			if (((Control^)sender)->Top <= 0) {
+				((Control^)sender)->Top = 0;
+			}
+			if (((Control^)sender)->Left > pictureBox1->Parent->Size.Width - pictureBox1->Size.Width) {
+				((Control^)sender)->Left = pictureBox1->Parent->Size.Width - pictureBox1->Size.Width;
+			}
+			if (((Control^)sender)->Top > pictureBox1->Parent->Size.Height - pictureBox1->Size.Height) {
+				((Control^)sender)->Top = pictureBox1->Parent->Size.Height - pictureBox1->Size.Height;
 			}
 		}
-		
-		private: System::Void pictureBox1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-			mouseDown = true;
-			mouseDownLocation = e->Location;
-		}
-		private: System::Void pictureBox1_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-			mouseDown = false;
-		}
+	}
+
+	private: System::Void pictureBox1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		mouseDown = true;
+		mouseDownLocation = e->Location;
+	}
+	private: System::Void pictureBox1_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		mouseDown = false;
+	}
 
 	private: System::Void pictureBoxMain_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 		labelCoordinates->Text = (e->X).ToString() + L"; " + (e->Y).ToString();
 
-		int circleWidth = 50;
-		int circleHeight = 50;
+		/*		int circleWidth = 50;
+				int circleHeight = 50;
 
-		int circleCenterOffsetX = circleWidth / 2;
-		int circleCenterOffsetY = circleHeight / 2;
+				int circleCenterOffsetX = circleWidth / 2;
+				int circleCenterOffsetY = circleHeight / 2;
 
-		Bitmap^ image = (Bitmap^)(this->pictureBoxMain->Image);
-		if (image == nullptr) {
-			image = gcnew Bitmap(((Control^)sender)->Size.Width, ((Control^)sender)->Size.Height);
-		}
-		System::Drawing::Graphics^ gfx = Graphics::FromImage(image);
-		
-		System::Drawing::Brush^ brush = gcnew SolidBrush(Color::LightGray);
-		System::Drawing::Brush^ darkGray = gcnew SolidBrush(Color::DarkGray);
-		gfx->Clear(Color::White);
-		gfx->SmoothingMode = Drawing2D::SmoothingMode::HighQuality;
-		gfx->FillEllipse(brush, e->X - circleCenterOffsetX, e->Y - circleCenterOffsetY, circleWidth, circleHeight);
-		gfx->DrawEllipse(Pens::DarkGray, e->X - circleCenterOffsetX, e->Y - circleCenterOffsetY, circleWidth, circleHeight);
+				Bitmap^ image = (Bitmap^)(this->pictureBoxMain->Image);
+				if (image == nullptr) {
+					image = gcnew Bitmap(((Control^)sender)->Size.Width, ((Control^)sender)->Size.Height);
+				}
+				System::Drawing::Graphics^ gfx = Graphics::FromImage(image);
 
-		
+				System::Drawing::Brush^ brush = gcnew SolidBrush(Color::LightGray);
+				System::Drawing::Brush^ darkGray = gcnew SolidBrush(Color::DarkGray);
+				gfx->Clear(Color::White);
+				gfx->SmoothingMode = Drawing2D::SmoothingMode::HighQuality;
+				gfx->FillEllipse(brush, e->X - circleCenterOffsetX, e->Y - circleCenterOffsetY, circleWidth, circleHeight);
+				gfx->DrawEllipse(Pens::DarkGray, e->X - circleCenterOffsetX, e->Y - circleCenterOffsetY, circleWidth, circleHeight);
 
-		this->pictureBoxMain->Image = image;
+
+
+				this->pictureBoxMain->Image = image; */
 	}
-private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	MessageBox::Show(
-		"Zetros",
-		"Info"
-	);
-}
-};
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+		MessageBox::Show(
+			"Zetros",
+			"Info"
+		);
+	}
+	
+	public:  System::Void genGraph();
+
+	};
 
 }
