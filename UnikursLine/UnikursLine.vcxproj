@@ -114,6 +114,7 @@
   <ItemGroup>
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Node.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -127,6 +128,7 @@
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Node.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">

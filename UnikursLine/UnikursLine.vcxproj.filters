@@ -21,12 +21,18 @@
     <ClCompile Include="Graph.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Graph.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

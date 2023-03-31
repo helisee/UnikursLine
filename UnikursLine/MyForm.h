@@ -1,8 +1,12 @@
 ﻿#pragma once
 #include <string.h>
 #include "windows.h"
+#include "Node.h"
 #include "Graph.h"
 #include <cliext/list>
+
+#ifndef ULFORM
+#define ULFORM
 
 namespace UnikursLine {
 
@@ -503,7 +507,8 @@ namespace UnikursLine {
 		mouseDown = false;
 	}
 
-	private: System::Void pictureBoxMain_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	private: System::Void 
+		pictureBoxMain_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 		labelCoordinates->Text = (e->X).ToString() + L"; " + (e->Y).ToString();
 
 		/*		int circleWidth = 50;
@@ -529,15 +534,21 @@ namespace UnikursLine {
 
 				this->pictureBoxMain->Image = image; */
 	}
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void 
+		label1_Click(System::Object^ sender, System::EventArgs^ e) {
 		MessageBox::Show(
 			"Zetros",
 			"Info"
 		);
 	}
-	
-	public:  System::Void genGraph();
+	/// <summary>
+	/// Инициализирует поле графа
+	/// </summary>
+	/// <returns>System::Void</returns>
+	public:  System::Void InitGraph();
 
 	};
 
 }
+
+#endif
