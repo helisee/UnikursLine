@@ -6,10 +6,11 @@ Node::Node(Point^ position) {
 	this->Position = position;
 	this->X = position->X;
 	this->Y = position->Y;
+	Nodes.Add(this);
 }
 
 Node::~Node() {
-
+	
 }
 
 float 

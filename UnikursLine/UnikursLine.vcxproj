@@ -112,7 +112,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GPoint.cpp" />
     <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="Line.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Node.cpp" />
   </ItemGroup>
@@ -124,7 +126,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GPoint.h" />
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="Line.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

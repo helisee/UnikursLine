@@ -18,11 +18,8 @@ namespace UnikursLine {
 		int Y;
 		Point^ Position;
 
+		static Generic::List<Node^> Nodes;
 	public:
-		//int circleWidth = 50;
-		//int circleHeight = 50;
-		//int circleCenterOffsetX = circleWidth / 2;
-		//int circleCenterOffsetY = circleHeight / 2;
 		static int circleRadius = 25;
 		static int circleDiameter = 2 * circleRadius;
 

@@ -63,7 +63,8 @@ Graph::pictureBoxField_MouseMove(System::Object^ sender, System::Windows::Forms:
 	if (this->mousePressed) {
 		if (this->MovableNode != nullptr) {
 			this->MovableNode->SetPosition(Point(e->X, e->Y));
-			this->Refresh();
+			this->RedrawGraph();
+			//this->Refresh();
 		}
 		/*int circleWidth = 50;
 		int circleHeight = 50;
@@ -97,7 +98,31 @@ Graph::AddNode() {
 	Node^ newnode = gcnew Node(pos);
 	Nodes->Add(newnode);
 
+	//this->Refresh();
+}
+
+System::Void
+Graph::AddPointToGraph() {
+	int count = Points->Count;
+	int magicNumber = 20;
+	Point^ pos = gcnew Point(magicNumber * count + 50, magicNumber * count + 50);
+	GPoint^ newPoint = gcnew GPoint(pos);
+
+	//this->Refresh();
+	this->RedrawGraph();
+}
+
+System::Void
+Graph::AddNodeToGraph(Node^ node) {
+	int count = Points->Count;
+	int magicNumber = 20;
+	Point^ pos = gcnew Point(magicNumber * count + 50, magicNumber * count + 50);
+	Node^ newnode = gcnew Node(pos);
+	GPoint^ newPoint = gcnew GPoint(newnode);
+
 	this->Refresh();
+
+	this->RedrawGraph();
 }
 
 System::Void 
@@ -122,8 +147,30 @@ Graph::Refresh() {
 	this->pictureBoxField->Image = image;
 }
 
-//---------------------------------------------------------------
+
 System::Void 
-MyForm::InitGraph() {
-	Graph^ gr = gcnew Graph(this->pictureBoxMain);
+Graph::RedrawGraph() {
+	System::Drawing::Brush^ brush = gcnew SolidBrush(Color::LightGray);
+	System::Drawing::Brush^ darkGray = gcnew SolidBrush(Color::DarkGray);
+	System::Drawing::Brush^ black = gcnew SolidBrush(Color::Black);
+
+	Bitmap^ image = (Bitmap^)(pictureBoxField->Image);
+	Graphics^ gfx = Graphics::FromImage(image);
+	gfx->Clear(Color::White);
+	gfx->SmoothingMode = Drawing2D::SmoothingMode::HighQuality;
+
+	for each (auto gpoint in GPoint::Points) {
+		if (gpoint->IsNode()) {
+			Node^ mNode = gpoint->GetNode();
+			gfx->FillEllipse(brush, mNode->X - mNode->circleRadius, mNode->Y - mNode->circleRadius, mNode->circleDiameter, mNode->circleDiameter);
+			gfx->DrawEllipse(Pens::DarkGray, mNode->X - mNode->circleRadius, mNode->Y - mNode->circleRadius, mNode->circleDiameter, mNode->circleDiameter);
+		}
+		else {
+			Point^ gp = gpoint->GetPosition();
+			int pointSize = 2;
+			gfx->FillEllipse(black, gp->X - pointSize - 1, gp->Y - pointSize - 1, pointSize, pointSize);
+			gfx->DrawEllipse(Pens::Black, gp->X - pointSize - 1, gp->Y - pointSize - 1, pointSize, pointSize);
+		}
+	}
+	this->pictureBoxField->Image = image;
 }
