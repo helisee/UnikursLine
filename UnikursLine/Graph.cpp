@@ -19,11 +19,11 @@ Graph::Graph(PictureBox^ pictureBoxField) {
 		this->pictureBoxField->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &Graph::pictureBoxField_MouseUp);
 		this->pictureBoxField->Image = image;
 
+		/*AddNode();
 		AddNode();
 		AddNode();
 		AddNode();
-		AddNode();
-		AddNode();
+		AddNode();*/
 
 		MyForm::I->Update();
 	}
@@ -61,6 +61,7 @@ Graph::pictureBoxField_MouseDown(System::Object^ sender, System::Windows::Forms:
 System::Void 
 Graph::pictureBoxField_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 	if (this->mousePressed) {
+
 		if (this->MovableNode != nullptr) {
 			this->MovableNode->SetPosition(Point(e->X, e->Y));
 			this->RedrawGraph();
@@ -90,6 +91,7 @@ Graph::pictureBoxField_MouseMove(System::Object^ sender, System::Windows::Forms:
 	}
 }
 
+/*
 System::Void 
 Graph::AddNode() {
 	int count = Nodes->Count;
@@ -100,6 +102,7 @@ Graph::AddNode() {
 
 	//this->Refresh();
 }
+*/
 
 System::Void
 Graph::AddPointToGraph() {

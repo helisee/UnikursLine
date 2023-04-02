@@ -21,6 +21,8 @@ namespace UnikursLine {
 		Node^ GetNode();
 
 		System::Drawing::Point^ GetPosition();
+
+		float DistanceFromCenter(System::Drawing::Point^ position);
 	};
 
 }

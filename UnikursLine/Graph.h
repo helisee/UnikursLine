@@ -28,7 +28,7 @@ namespace UnikursLine
 
 	public:	Graph(PictureBox^ pictureBoxField); 
 		~Graph();
-		System::Void AddNode();
+		// System::Void AddNode();
 
 		/// <summary>
 		/// Add empty point to graph

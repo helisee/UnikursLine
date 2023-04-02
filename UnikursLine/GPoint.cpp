@@ -31,6 +31,18 @@ Node^ GPoint::GetNode() {
 	return nullptr;
 }
 
+float GPoint::DistanceFromCenter(System::Drawing::Point^ position) {
+	if (isNode) {
+		return ((Node^)Point)->DistanceFromCenter(position);
+	}
+	else {
+		float radius = Math::Sqrt();
+
+		if (radius > this->circleRadius) return -1.0;
+		return radius;
+	}
+}
+
 System::Drawing::Point^ GPoint::GetPosition() {
 	if (isNode) {
 		return ((Node^)this->Point)->Position;
