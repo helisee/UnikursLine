@@ -1,6 +1,6 @@
 #pragma once
-#include "Node.h"
 #include "GPoint.h"
+#include "Node.h"
 #include "MyForm.h"
 #include <cliext/list>
 
@@ -20,10 +20,9 @@ namespace UnikursLine
 	private:
 		PictureBox^ pictureBoxField;
 		bool mousePressed = false;
-	public:
-		Node^ MovableNode = nullptr;
-		Generic::List<Node^ > ^ Nodes;
-		Generic::List<GPoint^ > ^ Points;
+	public: GPoint^ MovableObject = nullptr;
+	public:	static Generic::List<Node^ > ^ Nodes;
+		//Generic::List<GPoint^ > ^ Points;
 
 
 	public:	Graph(PictureBox^ pictureBoxField); 
@@ -35,6 +34,7 @@ namespace UnikursLine
 		/// </summary>
 		System::Void AddPointToGraph();
 
+		System::Void AddNodeToGraph();
 		/// <summary>
 		/// Add node to graph
 		/// </summary>

@@ -18,12 +18,18 @@ Graph::Graph(PictureBox^ pictureBoxField) {
 		this->pictureBoxField->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &Graph::pictureBoxField_MouseDown);
 		this->pictureBoxField->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &Graph::pictureBoxField_MouseUp);
 		this->pictureBoxField->Image = image;
+		gcnew GPoint();
+		gcnew Node();
 
-		/*AddNode();
-		AddNode();
-		AddNode();
-		AddNode();
-		AddNode();*/
+		AddPointToGraph();
+		AddPointToGraph();
+		AddNodeToGraph();
+		AddPointToGraph();
+		AddNodeToGraph();
+		AddPointToGraph();
+		AddNodeToGraph();
+		AddNodeToGraph();
+		AddNodeToGraph();
 
 		MyForm::I->Update();
 	}
@@ -36,57 +42,35 @@ Graph::~Graph() {
 System::Void  
 Graph::pictureBoxField_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 	this->mousePressed = false;
-	this->MovableNode = nullptr;
+	this->MovableObject = nullptr;
+	MyForm::I->label1->Text = L"Zetros";
 }
 
 System::Void  
 Graph::pictureBoxField_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 	this->mousePressed = true;
-	Node^ near_node = nullptr;
-	const float MAX_DIST = 50.0;
-	float nearest_point = MAX_DIST;
-	for each (auto node in Nodes) {
-		float radius = node->DistanceFromCenter(Point(e->X, e->Y));
-		if (radius != -1.0) {
-			if (radius < nearest_point) {
-				near_node = node;
-			}
-		}
+
+	GPoint^ nearMovableObj = nullptr;
+	float nearestObjectDistance = GPoint::MaxDistNeighborhood;
+	for each (auto obj in GPoint::Points) {
+		Point^ pos = Point(e->X, e->Y);
+		float distance = obj->DistanceFromCenter(pos);
+		if (distance == -1) continue;
+		if (distance < nearestObjectDistance) nearMovableObj = obj;
+		//MyForm::I->label1->Text = nearMovableObj->ToString();
+		MyForm::I->Update();
 	}
-	if (near_node != nullptr) {
-		this->MovableNode = near_node;
-	}
+	if (nearMovableObj != nullptr) this->MovableObject = nearMovableObj;
 }
 
 System::Void 
 Graph::pictureBoxField_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 	if (this->mousePressed) {
+		if (this->MovableObject == nullptr) return;
 
-		if (this->MovableNode != nullptr) {
-			this->MovableNode->SetPosition(Point(e->X, e->Y));
-			this->RedrawGraph();
-			//this->Refresh();
-		}
-		/*int circleWidth = 50;
-		int circleHeight = 50;
-		int circleCenterOffsetX = circleWidth / 2;
-		int circleCenterOffsetY = circleHeight / 2;
-
-		System::Drawing::Brush^ brush = gcnew SolidBrush(Color::LightGray);
-		System::Drawing::Brush^ darkGray = gcnew SolidBrush(Color::DarkGray);
-
-		Bitmap^ image = (Bitmap^)(pictureBoxField->Image);
-		if (image == nullptr) {
-			image = gcnew Bitmap(((Control^)sender)->Size.Width, ((Control^)sender)->Size.Height);
-			MyForm::I->label1->Text = ((Control^)sender)->Size.Width.ToString() + L" " + ((Control^)sender)->Size.Height.ToString();
-		}
-
-		Graphics^ gfx = Graphics::FromImage(image);
-		gfx->Clear(Color::White);
-		gfx->SmoothingMode = Drawing2D::SmoothingMode::HighQuality;
-		gfx->FillEllipse(brush, e->X - circleCenterOffsetX, e->Y - circleCenterOffsetY, circleWidth, circleHeight);
-		gfx->DrawEllipse(Pens::DarkGray, e->X - circleCenterOffsetX, e->Y - circleCenterOffsetY, circleWidth, circleHeight);
-		this->pictureBoxField->Image = image;*/
+		System::Drawing::Point^ newPos = Point(e->X, e->Y);
+		this->MovableObject->SetPosition(newPos);
+		this->RedrawGraph();
 		MyForm::I->Update();
 	}
 }
@@ -106,24 +90,28 @@ Graph::AddNode() {
 
 System::Void
 Graph::AddPointToGraph() {
-	int count = Points->Count;
+	int count = GPoint::Points->Count;
 	int magicNumber = 20;
 	Point^ pos = gcnew Point(magicNumber * count + 50, magicNumber * count + 50);
 	GPoint^ newPoint = gcnew GPoint(pos);
 
-	//this->Refresh();
 	this->RedrawGraph();
 }
 
 System::Void
-Graph::AddNodeToGraph(Node^ node) {
-	int count = Points->Count;
+Graph::AddNodeToGraph() {
+	int count = GPoint::Points->Count;
 	int magicNumber = 20;
 	Point^ pos = gcnew Point(magicNumber * count + 50, magicNumber * count + 50);
 	Node^ newnode = gcnew Node(pos);
 	GPoint^ newPoint = gcnew GPoint(newnode);
 
-	this->Refresh();
+	this->RedrawGraph();
+}
+
+System::Void
+Graph::AddNodeToGraph(Node^ node) {
+	GPoint^ newPoint = gcnew GPoint(node);
 
 	this->RedrawGraph();
 }
@@ -170,9 +158,10 @@ Graph::RedrawGraph() {
 		}
 		else {
 			Point^ gp = gpoint->GetPosition();
-			int pointSize = 2;
-			gfx->FillEllipse(black, gp->X - pointSize - 1, gp->Y - pointSize - 1, pointSize, pointSize);
-			gfx->DrawEllipse(Pens::Black, gp->X - pointSize - 1, gp->Y - pointSize - 1, pointSize, pointSize);
+			int pointSize = GPoint::EmptyPointDiameter;
+			int pointCentr = pointSize / 2;
+			gfx->FillEllipse(black, gp->X - pointCentr, gp->Y - pointCentr, pointSize, pointSize);
+			gfx->DrawEllipse(Pens::Black, gp->X - pointCentr, gp->Y - pointCentr, pointSize, pointSize);
 		}
 	}
 	this->pictureBoxField->Image = image;

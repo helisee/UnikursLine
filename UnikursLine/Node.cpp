@@ -2,12 +2,17 @@
 
 using namespace UnikursLine;
 
+Node::Node() {
+	Nodes = gcnew Generic::List<Node^>();
+}
+
 Node::Node(Point^ position) {
 	this->Position = position;
 	this->X = position->X;
 	this->Y = position->Y;
-	Nodes.Add(this);
+	Nodes->Add(this);
 }
+
 
 Node::~Node() {
 	

@@ -18,12 +18,13 @@ namespace UnikursLine {
 		int Y;
 		Point^ Position;
 
-		static Generic::List<Node^> Nodes;
+		static Generic::List<Node^>^ Nodes;
 	public:
 		static int circleRadius = 25;
 		static int circleDiameter = 2 * circleRadius;
 
 	public:
+		Node();
 		Node(Point^ position);
 		~Node();
 		System::Void SetPosition(Point^ position);

@@ -105,10 +105,8 @@ namespace UnikursLine {
 			this->pictureBoxMain = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->оПрограммеToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->menuStrip1->SuspendLayout();
 			this->groupBoxMatrix->SuspendLayout();
 			this->panelMatrix->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownBranches))->BeginInit();
@@ -117,32 +115,14 @@ namespace UnikursLine {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxMain))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// menuStrip1
-			// 
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->toolStripMenuItem1,
-					this->оПрограммеToolStripMenuItem
-			});
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
-			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1013, 24);
-			this->menuStrip1->TabIndex = 0;
-			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// toolStripMenuItem1
 			// 
 			this->toolStripMenuItem1->Name = L"toolStripMenuItem1";
 			this->toolStripMenuItem1->Size = System::Drawing::Size(68, 20);
 			this->toolStripMenuItem1->Text = L"Помощь";
-			// 
-			// оПрограммеToolStripMenuItem
-			// 
-			this->оПрограммеToolStripMenuItem->Name = L"оПрограммеToolStripMenuItem";
-			this->оПрограммеToolStripMenuItem->Size = System::Drawing::Size(94, 20);
-			this->оПрограммеToolStripMenuItem->Text = L"О программе";
-			this->оПрограммеToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::оПрограммеToolStripMenuItem_Click);
 			// 
 			// groupBoxMatrix
 			// 
@@ -164,7 +144,7 @@ namespace UnikursLine {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(274, 29);
+			this->label1->Location = System::Drawing::Point(6, 69);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(37, 13);
 			this->label1->TabIndex = 7;
@@ -267,7 +247,6 @@ namespace UnikursLine {
 			this->pictureBoxMain->Size = System::Drawing::Size(498, 456);
 			this->pictureBoxMain->TabIndex = 1;
 			this->pictureBoxMain->TabStop = false;
-			//this->pictureBoxMain->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::pictureBoxMain_MouseMove);
 			// 
 			// pictureBox2
 			// 
@@ -289,6 +268,25 @@ namespace UnikursLine {
 			this->pictureBox1->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::pictureBox1_MouseMove);
 			this->pictureBox1->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::pictureBox1_MouseUp);
 			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->toolStripMenuItem1,
+					this->оПрограммеToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(1013, 24);
+			this->menuStrip1->TabIndex = 0;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// оПрограммеToolStripMenuItem
+			// 
+			this->оПрограммеToolStripMenuItem->Name = L"оПрограммеToolStripMenuItem";
+			this->оПрограммеToolStripMenuItem->Size = System::Drawing::Size(94, 20);
+			this->оПрограммеToolStripMenuItem->Text = L"О программе";
+			this->оПрограммеToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::оПрограммеToolStripMenuItem_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -301,8 +299,6 @@ namespace UnikursLine {
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
 			this->Text = L"Unikurs Line";
-			this->menuStrip1->ResumeLayout(false);
-			this->menuStrip1->PerformLayout();
 			this->groupBoxMatrix->ResumeLayout(false);
 			this->groupBoxMatrix->PerformLayout();
 			this->panelMatrix->ResumeLayout(false);
@@ -312,6 +308,8 @@ namespace UnikursLine {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxMain))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
