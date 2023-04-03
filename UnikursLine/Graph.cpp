@@ -75,19 +75,6 @@ Graph::pictureBoxField_MouseMove(System::Object^ sender, System::Windows::Forms:
 	}
 }
 
-/*
-System::Void 
-Graph::AddNode() {
-	int count = Nodes->Count;
-	int magicNumber = 10;
-	Point^ pos = gcnew Point(magicNumber * count + 50, magicNumber * count + 50);
-	Node^ newnode = gcnew Node(pos);
-	Nodes->Add(newnode);
-
-	//this->Refresh();
-}
-*/
-
 System::Void
 Graph::AddPointToGraph() {
 	int count = GPoint::Points->Count;
@@ -137,7 +124,6 @@ Graph::Refresh() {
 	}
 	this->pictureBoxField->Image = image;
 }
-
 
 System::Void 
 Graph::RedrawGraph() {

@@ -22,8 +22,6 @@ namespace UnikursLine
 		bool mousePressed = false;
 	public: GPoint^ MovableObject = nullptr;
 	public:	static Generic::List<Node^ > ^ Nodes;
-		//Generic::List<GPoint^ > ^ Points;
-
 
 	public:	Graph(PictureBox^ pictureBoxField); 
 		~Graph();
