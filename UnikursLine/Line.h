@@ -1,5 +1,5 @@
 #pragma once
-#include "Node.h"
+#include "GPoint.h"
 
 #ifndef ULLINE
 #define ULLINE
@@ -9,9 +9,13 @@ namespace UnikursLine {
 	ref class Line
 	{
 	public:
-		Point^ From;
-		Point^ To;
+		int Num;
+		GPoint^ From;
+		GPoint^ To;
+
+		Line(int number, GPoint^ from, GPoint^ to);
 	};
+
 }
 
 #endif

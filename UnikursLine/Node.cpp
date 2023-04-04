@@ -13,7 +13,6 @@ Node::Node(Point^ position) {
 	Nodes->Add(this);
 }
 
-
 Node::~Node() {
 	
 }

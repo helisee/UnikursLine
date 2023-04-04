@@ -29,6 +29,7 @@ namespace UnikursLine {
 		{
 			I = this;
 			InitializeComponent();
+			InitGraph();
 		}
 
 	protected:
@@ -61,6 +62,8 @@ namespace UnikursLine {
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Label^ labelCoordinates;
 	public: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	public:
 	private: System::ComponentModel::IContainer^ components;
 
 	protected:
@@ -79,6 +82,7 @@ namespace UnikursLine {
 			this->components = (gcnew System::ComponentModel::Container());
 			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBoxMatrix = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->labelCoordinates = (gcnew System::Windows::Forms::Label());
 			this->panelMatrix = (gcnew System::Windows::Forms::Panel());
@@ -114,6 +118,7 @@ namespace UnikursLine {
 			// 
 			// groupBoxMatrix
 			// 
+			this->groupBoxMatrix->Controls->Add(this->textBox1);
 			this->groupBoxMatrix->Controls->Add(this->label1);
 			this->groupBoxMatrix->Controls->Add(this->labelCoordinates);
 			this->groupBoxMatrix->Controls->Add(this->panelMatrix);
@@ -127,7 +132,15 @@ namespace UnikursLine {
 			this->groupBoxMatrix->TabIndex = 1;
 			this->groupBoxMatrix->TabStop = false;
 			this->groupBoxMatrix->Text = L" Матрица";
-			//this->groupBoxMatrix->Enter += gcnew System::EventHandler(this, &MyForm::groupBox1_Enter);
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(155, 51);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(100, 20);
+			this->textBox1->TabIndex = 8;
+			this->textBox1->Text = L"sdfasd";
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged);
 			// 
 			// label1
 			// 
@@ -307,6 +320,7 @@ namespace UnikursLine {
 			bool mouseDown = false;
 			Point mouseDownLocation;
 			Generic::List<Object^>^ myDynamicObjs;
+			Generic::Dictionary<TextBox^, int>^ matrix;
 
 		private: System::Void оПрограммеToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void numericUpDownBranches_ValueChanged(System::Object^ sender, System::EventArgs^ e);
@@ -323,8 +337,10 @@ namespace UnikursLine {
 		private: System::Void pictureBox1_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 		private: System::Void pictureBoxMain_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 		private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e);
-		public:  System::Void InitGraph();
-	};
+		private: System::Void InitGraph();
+		private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void tbMatrix_TextChanged(System::Object^ sender, System::EventArgs^ e);
+};
 
 }
 

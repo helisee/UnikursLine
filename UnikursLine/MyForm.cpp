@@ -6,7 +6,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	MyForm^ _mForm = gcnew MyForm();
-	_mForm->InitGraph();
+	
 	Application::Run(_mForm);
 
 	return 0;
@@ -151,7 +151,6 @@ MyForm::makeGraphField(System::Object^ sender, System::Windows::Forms::PaintEven
 	gfx->FillEllipse(brush, 0, 0, width, height);
 	gfx->DrawEllipse(Pens::DarkGray, 0, 0, width, height);
 	this->pictureBoxMain->Image = image;
-
 }
 
 System::Void
@@ -175,8 +174,6 @@ MyForm::panel1_DragEnter(System::Object^ sender, System::Windows::Forms::DragEve
 	//System::Windows::Forms::MessageBox::Show(e->Data->GetFormats()[0]);
 
 }
-
-
 
 System::Void
 MyForm::pictureBox1_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
@@ -247,10 +244,12 @@ MyForm::label1_Click(System::Object^ sender, System::EventArgs^ e) {
 /// </summary>
 /// <returns>System::Void</returns>
 
-
-
-
 System::Void
 MyForm::InitGraph() {
 	Graph^ gr = gcnew Graph(this->pictureBoxMain);
+}
+
+System::Void 
+MyForm::tbMatrix_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+
 }
