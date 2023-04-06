@@ -32,8 +32,6 @@ MyForm::numericUpDownNodes_ValueChanged(System::Object^ sender, System::EventArg
 	generateMatrix(sender, e);
 }
 
-
-
 System::Void
 MyForm::generateMatrix(System::Object^ sender, System::EventArgs^ e) {
 	if (myDynamicObjs == nullptr) myDynamicObjs = gcnew Generic::List<Object^>();
@@ -69,6 +67,9 @@ MyForm::generateMatrix(System::Object^ sender, System::EventArgs^ e) {
 			tb->AutoSize = false;
 			tb->TabIndex = i * branches + j + 4;
 			tb->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+
+			Element^ elem = gcnew Element(tb, i + 1, j + 1);
+
 			Update();
 
 			//dynamicControls->push_back(tb);
@@ -249,7 +250,3 @@ MyForm::InitGraph() {
 	Graph^ gr = gcnew Graph(this->pictureBoxMain);
 }
 
-System::Void 
-MyForm::tbMatrix_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-
-}

@@ -3,6 +3,7 @@
 #include "windows.h"
 #include "Node.h"
 #include "Graph.h"
+#include "Element.h" 
 #include <cliext/list>
 
 #ifndef ULFORM
@@ -62,7 +63,9 @@ namespace UnikursLine {
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Label^ labelCoordinates;
 	public: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::TextBox^ textBox1;
+
+	public:
+
 	public:
 	private: System::ComponentModel::IContainer^ components;
 
@@ -82,7 +85,6 @@ namespace UnikursLine {
 			this->components = (gcnew System::ComponentModel::Container());
 			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBoxMatrix = (gcnew System::Windows::Forms::GroupBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->labelCoordinates = (gcnew System::Windows::Forms::Label());
 			this->panelMatrix = (gcnew System::Windows::Forms::Panel());
@@ -118,7 +120,6 @@ namespace UnikursLine {
 			// 
 			// groupBoxMatrix
 			// 
-			this->groupBoxMatrix->Controls->Add(this->textBox1);
 			this->groupBoxMatrix->Controls->Add(this->label1);
 			this->groupBoxMatrix->Controls->Add(this->labelCoordinates);
 			this->groupBoxMatrix->Controls->Add(this->panelMatrix);
@@ -133,19 +134,10 @@ namespace UnikursLine {
 			this->groupBoxMatrix->TabStop = false;
 			this->groupBoxMatrix->Text = L" Матрица";
 			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(155, 51);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 20);
-			this->textBox1->TabIndex = 8;
-			this->textBox1->Text = L"sdfasd";
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged);
-			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(6, 69);
+			this->label1->Location = System::Drawing::Point(152, 49);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(37, 13);
 			this->label1->TabIndex = 7;
@@ -338,8 +330,7 @@ namespace UnikursLine {
 		private: System::Void pictureBoxMain_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 		private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void InitGraph();
-		private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e);
-		private: System::Void tbMatrix_TextChanged(System::Object^ sender, System::EventArgs^ e);
+		//private: System::Void tbMatrix_TextChanged(System::Object^ sender, System::EventArgs^ e);
 };
 
 }

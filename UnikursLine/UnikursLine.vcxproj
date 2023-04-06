@@ -115,6 +115,7 @@
     <ClCompile Include="GPoint.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Line.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Node.cpp" />
   </ItemGroup>
@@ -129,6 +130,7 @@
     <ClInclude Include="GPoint.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Line.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
