@@ -1,6 +1,7 @@
 #pragma once
 //#include "Graph.h"
 #include "Node.h"
+#include "Line.h"
 #include <cliext/list>
 
 #ifndef ULGPOINT
@@ -22,6 +23,8 @@ namespace UnikursLine {
 		// если точка - храним Point
 		// если Node - храним Node
 		Object^ Point;
+		Line^ Line;
+
 	public:
 		static const int EmptyPointDiameter = 5;
 		static const float MaxDistNeighborhood = (float)Node::circleDiameter;

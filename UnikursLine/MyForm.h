@@ -58,7 +58,7 @@ namespace UnikursLine {
 
 	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
 	public: System::Windows::Forms::Panel^ panel1;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
 	public: System::Windows::Forms::PictureBox^ pictureBoxMain;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Label^ labelCoordinates;
@@ -98,7 +98,6 @@ namespace UnikursLine {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->pictureBoxMain = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->оПрограммеToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBoxMatrix->SuspendLayout();
@@ -108,7 +107,6 @@ namespace UnikursLine {
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxMain))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -225,7 +223,6 @@ namespace UnikursLine {
 			// 
 			this->panel1->Controls->Add(this->pictureBoxMain);
 			this->panel1->Controls->Add(this->pictureBox2);
-			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Location = System::Drawing::Point(367, 42);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(634, 456);
@@ -248,18 +245,6 @@ namespace UnikursLine {
 			this->pictureBox2->Size = System::Drawing::Size(100, 50);
 			this->pictureBox2->TabIndex = 1;
 			this->pictureBox2->TabStop = false;
-			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->Location = System::Drawing::Point(17, 9);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(0);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(55, 55);
-			this->pictureBox1->TabIndex = 0;
-			this->pictureBox1->TabStop = false;
-			this->pictureBox1->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::pictureBox1_MouseDown);
-			this->pictureBox1->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::pictureBox1_MouseMove);
-			this->pictureBox1->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::pictureBox1_MouseUp);
 			// 
 			// menuStrip1
 			// 
@@ -300,7 +285,6 @@ namespace UnikursLine {
 			this->panel1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxMain))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
@@ -324,9 +308,6 @@ namespace UnikursLine {
 		private: System::Void makeGraphField(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
 		private: System::Void makePictureBox();
 		private: System::Void panel1_DragEnter(System::Object^ sender, System::Windows::Forms::DragEventArgs^ e);
-		private: System::Void pictureBox1_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
-		private: System::Void pictureBox1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
-		private: System::Void pictureBox1_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 		private: System::Void pictureBoxMain_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 		private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void InitGraph();

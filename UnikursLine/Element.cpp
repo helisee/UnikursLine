@@ -1,4 +1,5 @@
 #include "Element.h"
+#include "Matrix.h"
 #include <string>
 
 using namespace UnikursLine;
@@ -9,11 +10,17 @@ Element::Element(TextBox^ tb, unsigned nodeNum, unsigned branchNum) {
 	this->BranchNumer = branchNum;
 
 	this->textBox->TextChanged += gcnew System::EventHandler(this, &Element::numericUpDownNodes_ValueChanged);
+
+	Matrix::Set(this, 0);
+}
+
+Element::~Element() {
+	delete this->textBox;
 }
 
 System::Void 
 Element::ChangeValue(int value) {
-	this->matrix[this] = value;
+	Matrix::Set(this, value);
 }
 
 System::Void 
@@ -27,5 +34,4 @@ Element::numericUpDownNodes_ValueChanged(System::Object^ sender, System::EventAr
 		return;
 	}
 	this->ChangeValue(val);
-	
 }

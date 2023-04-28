@@ -136,7 +136,6 @@ MyForm::onPaint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ 
 	gfx->FillEllipse(brush, 0, 0, width, height);
 	gfx->DrawEllipse(Pens::DarkGray, 0, 0, width, height);
 	gfx->DrawString(L"1", font, darkGray, float(width - fontSize) / 2, (float)4);
-	this->pictureBox1->Image = image;
 }
 
 System::Void
@@ -174,36 +173,6 @@ System::Void
 MyForm::panel1_DragEnter(System::Object^ sender, System::Windows::Forms::DragEventArgs^ e) {
 	//System::Windows::Forms::MessageBox::Show(e->Data->GetFormats()[0]);
 
-}
-
-System::Void
-MyForm::pictureBox1_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	if (mouseDown) {
-		((Control^)sender)->Left = e->X + pictureBox1->Left - mouseDownLocation.X;
-		((Control^)sender)->Top = e->Y + pictureBox1->Top - mouseDownLocation.Y;
-		if (((Control^)sender)->Left <= 0) {
-			((Control^)sender)->Left = 0;
-		}
-		if (((Control^)sender)->Top <= 0) {
-			((Control^)sender)->Top = 0;
-		}
-		if (((Control^)sender)->Left > pictureBox1->Parent->Size.Width - pictureBox1->Size.Width) {
-			((Control^)sender)->Left = pictureBox1->Parent->Size.Width - pictureBox1->Size.Width;
-		}
-		if (((Control^)sender)->Top > pictureBox1->Parent->Size.Height - pictureBox1->Size.Height) {
-			((Control^)sender)->Top = pictureBox1->Parent->Size.Height - pictureBox1->Size.Height;
-		}
-	}
-}
-
-System::Void
-MyForm::pictureBox1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	mouseDown = true;
-	mouseDownLocation = e->Location;
-}
-System::Void
-MyForm::pictureBox1_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	mouseDown = false;
 }
 
 System::Void

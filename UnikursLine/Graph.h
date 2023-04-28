@@ -30,19 +30,20 @@ namespace UnikursLine
 		/// <summary>
 		/// Add empty point to graph
 		/// </summary>
-		System::Void AddPointToGraph();
+		System::Void AddPoint();
 
-		System::Void AddNodeToGraph();
+		System::Void AddNode();
+
+		System::Void AddLine();
 		/// <summary>
 		/// Add node to graph
 		/// </summary>
 		/// <param name="node">Óחוכ דנאפא</param>
 		/// <returns></returns>
-		System::Void AddNodeToGraph(Node^ node);
+		System::Void AddNode(Node^ node);
 
 		System::Void Refresh();
 		System::Void RedrawGraph();
-
 
 	private:
 		System::Void pictureBoxField_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e); 

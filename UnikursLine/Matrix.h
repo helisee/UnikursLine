@@ -17,7 +17,8 @@ namespace UnikursLine {
 		Matrix(unsigned nodeNum, unsigned branchNum);
 		Matrix(Panel^ panelMatrix, unsigned nodeNum, unsigned branchNum);
 
-		//System::Void Add();
+		static System::Void Clear();
+		static System::Void Set(Element^ elem, int val);
 	};
 }
 

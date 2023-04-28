@@ -1,12 +1,12 @@
 #pragma once
-#include "Matrix.h"
+
 #ifndef ULELEMENT
 #define ULELEMENT
 
 namespace UnikursLine {
 	using namespace System::Windows::Forms;
 
-	ref class Element : Matrix {
+	ref class Element {
 	private:
 		unsigned NodeNumber;
 		unsigned BranchNumer;
@@ -14,7 +14,7 @@ namespace UnikursLine {
 
 	public:
 		Element(TextBox^ tb, unsigned nodeNum, unsigned branchNum);
-		System::Add(int value);
+		~Element();
 		System::Void ChangeValue(int value);
 		System::Void numericUpDownNodes_ValueChanged(System::Object^ sender, System::EventArgs^ e);
 	};

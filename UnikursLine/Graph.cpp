@@ -21,15 +21,15 @@ Graph::Graph(PictureBox^ pictureBoxField) {
 		gcnew GPoint();
 		gcnew Node();
 
-		AddPointToGraph();
-		AddPointToGraph();
-		AddNodeToGraph();
-		AddPointToGraph();
-		AddNodeToGraph();
-		AddPointToGraph();
-		AddNodeToGraph();
-		AddNodeToGraph();
-		AddNodeToGraph();
+		AddPoint();
+		AddPoint();
+		AddNode();
+		AddPoint();
+		AddNode();
+		AddPoint();
+		AddNode();
+		AddNode();
+		AddNode();
 
 		MyForm::I->Update();
 	}
@@ -76,7 +76,7 @@ Graph::pictureBoxField_MouseMove(System::Object^ sender, System::Windows::Forms:
 }
 
 System::Void
-Graph::AddPointToGraph() {
+Graph::AddPoint() {
 	int count = GPoint::Points->Count;
 	int magicNumber = 20;
 	Point^ pos = gcnew Point(magicNumber * count + 50, magicNumber * count + 50);
@@ -86,7 +86,7 @@ Graph::AddPointToGraph() {
 }
 
 System::Void
-Graph::AddNodeToGraph() {
+Graph::AddNode() {
 	int count = GPoint::Points->Count;
 	int magicNumber = 20;
 	Point^ pos = gcnew Point(magicNumber * count + 50, magicNumber * count + 50);
@@ -97,10 +97,15 @@ Graph::AddNodeToGraph() {
 }
 
 System::Void
-Graph::AddNodeToGraph(Node^ node) {
+Graph::AddNode(Node^ node) {
 	GPoint^ newPoint = gcnew GPoint(node);
 
 	this->RedrawGraph();
+}
+
+System::Void
+Graph::AddLine() {
+
 }
 
 System::Void 

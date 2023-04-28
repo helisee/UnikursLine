@@ -112,6 +112,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Element.cpp" />
     <ClCompile Include="GPoint.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Line.cpp" />
@@ -127,6 +128,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Element.h" />
     <ClInclude Include="GPoint.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Line.h" />
