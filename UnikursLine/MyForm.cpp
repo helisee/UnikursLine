@@ -34,6 +34,14 @@ MyForm::numericUpDownNodes_ValueChanged(System::Object^ sender, System::EventArg
 
 System::Void
 MyForm::generateMatrix(System::Object^ sender, System::EventArgs^ e) {
+	// очистка графа
+	Bitmap^ image = (Bitmap^)(pictureBoxMain->Image);
+	Graphics^ gfx = Graphics::FromImage(image);
+	gfx->Clear(Color::White);
+	pictureBoxMain->Image = image;
+	labelM->Text = L"";
+	// конец очистки
+
 	if (myDynamicObjs == nullptr) myDynamicObjs = gcnew Generic::List<Object^>();
 
 	// Небезопасно ввиду ссылок на элементы/ через for по индексу сделать??
@@ -50,6 +58,20 @@ MyForm::generateMatrix(System::Object^ sender, System::EventArgs^ e) {
 	int height = 20;
 	int offsetX = 4;
 	int offsetY = 4;
+
+	Node::Clear();
+	Line::Clear();
+	Matrix::Clear();
+
+	if (nodes > 0 && branches > 0) {
+		for (int i = 0; i < branches; i++) {
+			Line^ line = gcnew Line(i + 1, nullptr, nullptr);
+		}
+
+		for (int i = 0; i < nodes; i++) {
+			Node^ node = gcnew Node(i + 1);
+		}
+	}
 
 	for (int i = 0; i < nodes; i++) {
 
@@ -204,10 +226,7 @@ MyForm::pictureBoxMain_MouseMove(System::Object^ sender, System::Windows::Forms:
 }
 System::Void
 MyForm::label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	MessageBox::Show(
-		"Zetros",
-		"Info"
-	);
+	
 }
 /// <summary>
 /// Инициализирует поле графа
@@ -218,4 +237,3 @@ System::Void
 MyForm::InitGraph() {
 	Graph^ gr = gcnew Graph(this->pictureBoxMain);
 }
-

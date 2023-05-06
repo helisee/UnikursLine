@@ -1,6 +1,5 @@
 #pragma once
-#include "GPoint.h"
-
+#include "Node.h"
 #ifndef ULLINE
 #define ULLINE
 
@@ -9,11 +8,16 @@ namespace UnikursLine {
 	ref class Line
 	{
 	public:
-		int Num;
-		GPoint^ From;
-		GPoint^ To;
+		static Generic::List<Line^>^ Lines;
 
-		Line(int number, GPoint^ from, GPoint^ to);
+		unsigned Num;
+		Node^ From;
+		Node^ To;
+
+		Line();
+		Line(int number, Node^ from, Node^ to);
+		static System::Void Clear();
+		static Line^ GetLine(int num);
 	};
 
 }

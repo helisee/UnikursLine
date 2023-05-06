@@ -48,8 +48,8 @@ namespace UnikursLine {
 	private: System::Windows::Forms::Label^ labelNodes;
 	private: System::Windows::Forms::Label^ labelBranches;
 
-	private: System::Windows::Forms::NumericUpDown^ numericUpDownBranches;
-	private: System::Windows::Forms::NumericUpDown^ numericUpDownNodes;
+	public: System::Windows::Forms::NumericUpDown^ numericUpDownBranches;
+	public: System::Windows::Forms::NumericUpDown^ numericUpDownNodes;
 	private: System::Windows::Forms::Panel^ panelMatrix;
 
 	private: System::Windows::Forms::Panel^ panelHorizontal;
@@ -63,6 +63,10 @@ namespace UnikursLine {
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Label^ labelCoordinates;
 	public: System::Windows::Forms::Label^ label1;
+	public: System::Windows::Forms::Label^ labelM;
+	public:
+
+	public:
 
 	public:
 
@@ -85,6 +89,7 @@ namespace UnikursLine {
 			this->components = (gcnew System::ComponentModel::Container());
 			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBoxMatrix = (gcnew System::Windows::Forms::GroupBox());
+			this->labelM = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->labelCoordinates = (gcnew System::Windows::Forms::Label());
 			this->panelMatrix = (gcnew System::Windows::Forms::Panel());
@@ -118,6 +123,7 @@ namespace UnikursLine {
 			// 
 			// groupBoxMatrix
 			// 
+			this->groupBoxMatrix->Controls->Add(this->labelM);
 			this->groupBoxMatrix->Controls->Add(this->label1);
 			this->groupBoxMatrix->Controls->Add(this->labelCoordinates);
 			this->groupBoxMatrix->Controls->Add(this->panelMatrix);
@@ -131,6 +137,14 @@ namespace UnikursLine {
 			this->groupBoxMatrix->TabIndex = 1;
 			this->groupBoxMatrix->TabStop = false;
 			this->groupBoxMatrix->Text = L" Матрица";
+			// 
+			// labelM
+			// 
+			this->labelM->Location = System::Drawing::Point(193, 0);
+			this->labelM->Name = L"labelM";
+			this->labelM->Size = System::Drawing::Size(139, 82);
+			this->labelM->TabIndex = 8;
+			this->labelM->Text = L"label2";
 			// 
 			// label1
 			// 

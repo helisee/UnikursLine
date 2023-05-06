@@ -10,7 +10,6 @@ GPoint::GPoint() {
 GPoint::GPoint(Node^ node) {
 	this->isNode = true;
 	this->Point = node;
-	//создать линию
 	Points->Add(this);
 	Node::Nodes->Add(node);
 }
@@ -18,13 +17,11 @@ GPoint::GPoint(Node^ node) {
 GPoint::GPoint(System::Drawing::Point^ point) {
 	this->isNode = false;
 	this->Point = point;
-	//создать линию
 	Points->Add(this);
 }
 
 GPoint::GPoint(GPoint^ gpoint) {
 	this->Point = gpoint->Point;
-	//создать линию
 	this->isNode = gpoint->isNode;
 	Points->Add(this);
 }

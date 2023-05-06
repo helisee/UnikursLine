@@ -14,6 +14,7 @@ namespace UnikursLine {
 	ref class Node
 	{	
 	public:
+		unsigned Num;
 		int X;
 		int Y;
 		Point^ Position;
@@ -26,9 +27,14 @@ namespace UnikursLine {
 	public:
 		Node();
 		Node(Point^ position);
-		~Node();
-		System::Void SetPosition(Point^ position);
+		Node(int number);
 
+		~Node();
+
+		static Node^ GetNode(unsigned number);
+		static System::Void Clear();
+
+		System::Void SetPosition(Point^ position);
 
 	public:
 		/// <summary>
@@ -36,7 +42,7 @@ namespace UnikursLine {
 		/// </summary>
 		/// <param name="position">¬ычисл€ема€ точка</param>
 		/// <returns>¬озвращает рассто€ние от центра позиции узла или -1, если точка не попадает в узел</returns>
-		float DistanceFromCenter(Point^ position);
+		float DistanceFromCenter(System::Drawing::Point^ position);
 	
 	};
 }

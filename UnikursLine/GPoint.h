@@ -23,7 +23,6 @@ namespace UnikursLine {
 		// если точка - храним Point
 		// если Node - храним Node
 		Object^ Point;
-		Line^ Line;
 
 	public:
 		static const int EmptyPointDiameter = 5;

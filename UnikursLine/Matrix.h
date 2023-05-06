@@ -6,12 +6,13 @@
 namespace UnikursLine {
 	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms;
+
 	static ref class Matrix {
 	private:
 		static Panel^ panelMatrix;
-	protected: 
+	public: 
 		static Dictionary <Element^, int>^ matrix;
-	
+		
 	public:
 		Matrix();
 		Matrix(unsigned nodeNum, unsigned branchNum);
@@ -19,6 +20,7 @@ namespace UnikursLine {
 
 		static System::Void Clear();
 		static System::Void Set(Element^ elem, int val);
+		
 	};
 }
 

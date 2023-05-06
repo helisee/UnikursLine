@@ -2,6 +2,9 @@
 #include "GPoint.h"
 #include "Node.h"
 #include "MyForm.h"
+#include "Line.h"
+#include "Element.h"
+#include "Matrix.h"
 #include <cliext/list>
 
 #ifndef ULGRAPH_H
@@ -18,10 +21,11 @@ namespace UnikursLine
 
 	ref class Graph {
 	private:
-		PictureBox^ pictureBoxField;
+		static PictureBox^ pictureBoxField;
 		bool mousePressed = false;
-	public: GPoint^ MovableObject = nullptr;
-	public:	static Generic::List<Node^ > ^ Nodes;
+	//public: GPoint^ MovableObject = nullptr;
+	public: Node^ MoveNode = nullptr;
+	//public:	static Generic::List<Node^ > ^ Nodes;
 
 	public:	Graph(PictureBox^ pictureBoxField); 
 		~Graph();
@@ -34,7 +38,6 @@ namespace UnikursLine
 
 		System::Void AddNode();
 
-		System::Void AddLine();
 		/// <summary>
 		/// Add node to graph
 		/// </summary>
@@ -43,12 +46,14 @@ namespace UnikursLine
 		System::Void AddNode(Node^ node);
 
 		System::Void Refresh();
-		System::Void RedrawGraph();
+		static System::Void RedrawGraph();
 
 	private:
 		System::Void pictureBoxField_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e); 
 		System::Void pictureBoxField_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e); 
 		System::Void pictureBoxField_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e); 
+
+		System::Void InitDicts();
 		
 	};
 }

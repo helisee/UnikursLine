@@ -1,5 +1,6 @@
 #include "Element.h"
 #include "Matrix.h"
+#include "Graph.h"
 #include <string>
 
 using namespace UnikursLine;
@@ -19,7 +20,7 @@ Element::~Element() {
 }
 
 System::Void 
-Element::ChangeValue(int value) {
+Element::ChangeMatrixValue(int value) {
 	Matrix::Set(this, value);
 }
 
@@ -32,6 +33,19 @@ Element::numericUpDownNodes_ValueChanged(System::Object^ sender, System::EventAr
 	if (isInt == false) {
 		str = L"0";
 		return;
+	} 
+	if (val > 0) {
+		val = 1;
 	}
-	this->ChangeValue(val);
+	if (val < 0) {
+		val = -1;
+	}
+	this->ChangeMatrixValue(val);
+	((TextBox^)sender)->Text = val.ToString();
+	Graph::RedrawGraph();
+}
+
+System::Void 
+Element::ChangeTextBoxValue(int val) {
+	this->textBox->Text = val.ToString();
 }
