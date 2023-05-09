@@ -15,6 +15,7 @@ namespace UnikursLine
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
+	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
@@ -23,9 +24,7 @@ namespace UnikursLine
 	private:
 		static PictureBox^ pictureBoxField;
 		bool mousePressed = false;
-	//public: GPoint^ MovableObject = nullptr;
 	public: Node^ MoveNode = nullptr;
-	//public:	static Generic::List<Node^ > ^ Nodes;
 
 	public:	Graph(PictureBox^ pictureBoxField); 
 		~Graph();
@@ -54,6 +53,11 @@ namespace UnikursLine
 		System::Void pictureBoxField_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e); 
 
 		System::Void InitDicts();
+	public:
+		static bool CheckForEulerPath();
+		static System::Void DFS(int vertex, array< array<int>^ >^ v, array <bool>^ visited);
+		static System::Void FindEulerPath( );
+
 		
 	};
 }

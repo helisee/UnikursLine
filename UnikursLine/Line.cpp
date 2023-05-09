@@ -19,7 +19,7 @@ Line::Clear() {
 	Lines->Clear();
 	
 }
-
+	
 Line^ 
 Line::GetLine(int num) {
 	for each (auto line in Lines) {

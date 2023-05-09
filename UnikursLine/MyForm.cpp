@@ -32,6 +32,12 @@ MyForm::numericUpDownNodes_ValueChanged(System::Object^ sender, System::EventArg
 	generateMatrix(sender, e);
 }
 
+System::Void 
+MyForm::EnableButtons(bool enabled) {
+	buttonCheck->Enabled = enabled;
+	buttonEvalPath->Enabled = enabled;
+}
+
 System::Void
 MyForm::generateMatrix(System::Object^ sender, System::EventArgs^ e) {
 	// очистка графа
@@ -40,11 +46,12 @@ MyForm::generateMatrix(System::Object^ sender, System::EventArgs^ e) {
 	gfx->Clear(Color::White);
 	pictureBoxMain->Image = image;
 	labelM->Text = L"";
+	labelCheck->Text = L"";
+	labelCoordinates->Text = L"";
 	// конец очистки
 
 	if (myDynamicObjs == nullptr) myDynamicObjs = gcnew Generic::List<Object^>();
 
-	// Небезопасно ввиду ссылок на элементы/ через for по индексу сделать??
 	for each (auto elem in myDynamicObjs) {
 		this->panelMatrix->Controls->Remove((Control^)elem);
 		this->panelHorizontal->Controls->Remove((Control^)elem);
@@ -71,6 +78,9 @@ MyForm::generateMatrix(System::Object^ sender, System::EventArgs^ e) {
 		for (int i = 0; i < nodes; i++) {
 			Node^ node = gcnew Node(i + 1);
 		}
+	}
+	else {
+		EnableButtons(false);
 	}
 
 	for (int i = 0; i < nodes; i++) {
@@ -139,7 +149,6 @@ MyForm::makeRowIndexLabel(int i, int height, int offsetY, int width)
 	myDynamicObjs->Add(rowIndexLabel);
 	//dynamicControls->push_back(rowIndexLabel);
 }
-
 
 System::Void
 MyForm::onPaint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
@@ -224,6 +233,7 @@ MyForm::pictureBoxMain_MouseMove(System::Object^ sender, System::Windows::Forms:
 
 			this->pictureBoxMain->Image = image; */
 }
+
 System::Void
 MyForm::label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	
@@ -232,6 +242,22 @@ MyForm::label1_Click(System::Object^ sender, System::EventArgs^ e) {
 /// Инициализирует поле графа
 /// </summary>
 /// <returns>System::Void</returns>
+
+System::Void 
+MyForm::buttonCheck_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (Graph::CheckForEulerPath()) {
+		labelCheck->Text = L"Граф уникурсален";
+	}
+	else {
+		labelCheck->Text = L"Граф не уникурсален";
+	}
+		
+}
+
+System::Void 
+MyForm::buttonEvalPath_Click(System::Object^ sender, System::EventArgs^ e) {
+	Graph::FindEulerPath();
+}
 
 System::Void
 MyForm::InitGraph() {

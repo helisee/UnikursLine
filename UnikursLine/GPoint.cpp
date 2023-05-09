@@ -49,9 +49,9 @@ GPoint::DistanceFromCenter(System::Drawing::Point^ position) {
 	}
 	else {
 		System::Drawing::Point^ point = ((System::Drawing::Point^)this->Point);
-		float x_x0 = (position->X - point->X);
-		float y_y0 = (position->Y - point->Y);
-		float radius = Math::Sqrt(x_x0 * x_x0 + y_y0 * y_y0);
+		float x_x0 = float(position->X - point->X);
+		float y_y0 = float(position->Y - point->Y);
+		float radius = (float)Math::Sqrt(x_x0 * x_x0 + y_y0 * y_y0);
 
 		if (radius > this->EmptyPointDiameter) return -1.0;
 		return radius;

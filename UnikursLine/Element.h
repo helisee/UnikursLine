@@ -21,7 +21,6 @@ namespace UnikursLine {
 		System::Void ChangeMatrixValue(int value);
 		System::Void numericUpDownNodes_ValueChanged(System::Object^ sender, System::EventArgs^ e);
 		System::Void ChangeTextBoxValue(int val);
-
 	};
 }
 

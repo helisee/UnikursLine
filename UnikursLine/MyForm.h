@@ -61,9 +61,16 @@ namespace UnikursLine {
 
 	public: System::Windows::Forms::PictureBox^ pictureBoxMain;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
-	private: System::Windows::Forms::Label^ labelCoordinates;
+	public: System::Windows::Forms::Label^ labelCoordinates;
 	public: System::Windows::Forms::Label^ label1;
 	public: System::Windows::Forms::Label^ labelM;
+	private: System::Windows::Forms::Button^ buttonEvalPath;
+	public:
+
+	public:
+
+	private: System::Windows::Forms::Button^ buttonCheck;
+	private: System::Windows::Forms::Label^ labelCheck;
 	public:
 
 	public:
@@ -89,9 +96,12 @@ namespace UnikursLine {
 			this->components = (gcnew System::ComponentModel::Container());
 			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBoxMatrix = (gcnew System::Windows::Forms::GroupBox());
+			this->labelCheck = (gcnew System::Windows::Forms::Label());
+			this->labelCoordinates = (gcnew System::Windows::Forms::Label());
+			this->buttonEvalPath = (gcnew System::Windows::Forms::Button());
+			this->buttonCheck = (gcnew System::Windows::Forms::Button());
 			this->labelM = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->labelCoordinates = (gcnew System::Windows::Forms::Label());
 			this->panelMatrix = (gcnew System::Windows::Forms::Panel());
 			this->panelHorizontal = (gcnew System::Windows::Forms::Panel());
 			this->panelVertical = (gcnew System::Windows::Forms::Panel());
@@ -123,9 +133,12 @@ namespace UnikursLine {
 			// 
 			// groupBoxMatrix
 			// 
+			this->groupBoxMatrix->Controls->Add(this->labelCheck);
+			this->groupBoxMatrix->Controls->Add(this->labelCoordinates);
+			this->groupBoxMatrix->Controls->Add(this->buttonEvalPath);
+			this->groupBoxMatrix->Controls->Add(this->buttonCheck);
 			this->groupBoxMatrix->Controls->Add(this->labelM);
 			this->groupBoxMatrix->Controls->Add(this->label1);
-			this->groupBoxMatrix->Controls->Add(this->labelCoordinates);
 			this->groupBoxMatrix->Controls->Add(this->panelMatrix);
 			this->groupBoxMatrix->Controls->Add(this->labelBranches);
 			this->groupBoxMatrix->Controls->Add(this->numericUpDownBranches);
@@ -138,32 +151,59 @@ namespace UnikursLine {
 			this->groupBoxMatrix->TabStop = false;
 			this->groupBoxMatrix->Text = L" Матрица";
 			// 
+			// labelCheck
+			// 
+			this->labelCheck->AutoSize = true;
+			this->labelCheck->Location = System::Drawing::Point(12, 391);
+			this->labelCheck->Name = L"labelCheck";
+			this->labelCheck->Size = System::Drawing::Size(99, 13);
+			this->labelCheck->TabIndex = 10;
+			this->labelCheck->Text = L"Граф не проверен";
+			// 
+			// labelCoordinates
+			// 
+			this->labelCoordinates->Location = System::Drawing::Point(12, 404);
+			this->labelCoordinates->Name = L"labelCoordinates";
+			this->labelCoordinates->Size = System::Drawing::Size(326, 24);
+			this->labelCoordinates->TabIndex = 6;
+			// 
+			// buttonEvalPath
+			// 
+			this->buttonEvalPath->Enabled = false;
+			this->buttonEvalPath->Location = System::Drawing::Point(223, 354);
+			this->buttonEvalPath->Name = L"buttonEvalPath";
+			this->buttonEvalPath->Size = System::Drawing::Size(109, 23);
+			this->buttonEvalPath->TabIndex = 9;
+			this->buttonEvalPath->Text = L"Рассчитать путь";
+			this->buttonEvalPath->UseVisualStyleBackColor = true;
+			this->buttonEvalPath->Click += gcnew System::EventHandler(this, &MyForm::buttonEvalPath_Click);
+			// 
+			// buttonCheck
+			// 
+			this->buttonCheck->Enabled = false;
+			this->buttonCheck->Location = System::Drawing::Point(9, 354);
+			this->buttonCheck->Name = L"buttonCheck";
+			this->buttonCheck->Size = System::Drawing::Size(109, 23);
+			this->buttonCheck->TabIndex = 7;
+			this->buttonCheck->Text = L"Проверить";
+			this->buttonCheck->UseVisualStyleBackColor = true;
+			this->buttonCheck->Click += gcnew System::EventHandler(this, &MyForm::buttonCheck_Click);
+			// 
 			// labelM
 			// 
-			this->labelM->Location = System::Drawing::Point(193, 0);
+			this->labelM->Location = System::Drawing::Point(199, 16);
 			this->labelM->Name = L"labelM";
-			this->labelM->Size = System::Drawing::Size(139, 82);
+			this->labelM->Size = System::Drawing::Size(133, 66);
 			this->labelM->TabIndex = 8;
-			this->labelM->Text = L"label2";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(152, 49);
+			this->label1->Location = System::Drawing::Point(124, 16);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(37, 13);
+			this->label1->Size = System::Drawing::Size(0, 13);
 			this->label1->TabIndex = 7;
-			this->label1->Text = L"Zetros";
 			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
-			// 
-			// labelCoordinates
-			// 
-			this->labelCoordinates->AutoSize = true;
-			this->labelCoordinates->Location = System::Drawing::Point(152, 23);
-			this->labelCoordinates->Name = L"labelCoordinates";
-			this->labelCoordinates->Size = System::Drawing::Size(35, 13);
-			this->labelCoordinates->TabIndex = 6;
-			this->labelCoordinates->Text = L"label1";
 			// 
 			// panelMatrix
 			// 
@@ -172,7 +212,7 @@ namespace UnikursLine {
 			this->panelMatrix->Controls->Add(this->panelVertical);
 			this->panelMatrix->Location = System::Drawing::Point(6, 85);
 			this->panelMatrix->Name = L"panelMatrix";
-			this->panelMatrix->Size = System::Drawing::Size(332, 300);
+			this->panelMatrix->Size = System::Drawing::Size(332, 263);
 			this->panelMatrix->TabIndex = 5;
 			// 
 			// panelHorizontal
@@ -188,7 +228,7 @@ namespace UnikursLine {
 			this->panelVertical->Dock = System::Windows::Forms::DockStyle::Left;
 			this->panelVertical->Location = System::Drawing::Point(0, 0);
 			this->panelVertical->Name = L"panelVertical";
-			this->panelVertical->Size = System::Drawing::Size(32, 300);
+			this->panelVertical->Size = System::Drawing::Size(32, 263);
 			this->panelVertical->TabIndex = 1;
 			// 
 			// labelBranches
@@ -306,26 +346,31 @@ namespace UnikursLine {
 
 		}
 #pragma endregion
-		private:
-			bool mouseDown = false;
-			Point mouseDownLocation;
-			Generic::List<Object^>^ myDynamicObjs;
-			Generic::Dictionary<TextBox^, int>^ matrix;
+	private:
+		bool mouseDown = false;
+		Point mouseDownLocation;
+		Generic::List<Object^>^ myDynamicObjs;
+		Generic::Dictionary<TextBox^, int>^ matrix;
 
-		private: System::Void оПрограммеToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-		private: System::Void numericUpDownBranches_ValueChanged(System::Object^ sender, System::EventArgs^ e);
-		private: System::Void numericUpDownNodes_ValueChanged(System::Object^ sender, System::EventArgs^ e);
-		private: System::Void generateMatrix(System::Object^ sender, System::EventArgs^ e);
-		private: System::Void makeColIndexLabel(int j, int width, int offsetX);
-		private: System::Void makeRowIndexLabel(int i, int height, int offsetY, int width);
-		private: System::Void onPaint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
-		private: System::Void makeGraphField(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
-		private: System::Void makePictureBox();
-		private: System::Void panel1_DragEnter(System::Object^ sender, System::Windows::Forms::DragEventArgs^ e);
-		private: System::Void pictureBoxMain_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
-		private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e);
-		private: System::Void InitGraph();
-		//private: System::Void tbMatrix_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void оПрограммеToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void numericUpDownBranches_ValueChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void numericUpDownNodes_ValueChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void generateMatrix(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void makeColIndexLabel(int j, int width, int offsetX);
+	private: System::Void makeRowIndexLabel(int i, int height, int offsetY, int width);
+	private: System::Void onPaint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+	private: System::Void makeGraphField(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+	private: System::Void makePictureBox();
+	private: System::Void panel1_DragEnter(System::Object^ sender, System::Windows::Forms::DragEventArgs^ e);
+	private: System::Void pictureBoxMain_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void InitGraph();
+		   //private: System::Void tbMatrix_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+private: System::Void buttonCheck_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void buttonEvalPath_Click(System::Object^ sender, System::EventArgs^ e);
+	public: System::Void EnableButtons(bool enabled);
 };
 
 }

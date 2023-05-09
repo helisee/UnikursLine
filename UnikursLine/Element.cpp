@@ -42,6 +42,7 @@ Element::numericUpDownNodes_ValueChanged(System::Object^ sender, System::EventAr
 	}
 	this->ChangeMatrixValue(val);
 	((TextBox^)sender)->Text = val.ToString();
+	MyForm::I->EnableButtons(true);
 	Graph::RedrawGraph();
 }
 

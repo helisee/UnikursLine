@@ -1,5 +1,6 @@
 #pragma once
 #include "Element.h"
+
 #ifndef ULMATRIX
 #define ULMATRIX
 
@@ -12,6 +13,7 @@ namespace UnikursLine {
 		static Panel^ panelMatrix;
 	public: 
 		static Dictionary <Element^, int>^ matrix;
+		//static array<int, 2>^ adjMatrix;
 		
 	public:
 		Matrix();
@@ -20,7 +22,8 @@ namespace UnikursLine {
 
 		static System::Void Clear();
 		static System::Void Set(Element^ elem, int val);
-		
+		static unsigned Deg(unsigned nodeNum);
+		static array < array<int>^ >^ GetAdjMatrix();
 	};
 }
 
